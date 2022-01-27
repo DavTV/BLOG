@@ -26,6 +26,22 @@ class StoreCurso extends FormRequest
     {
         return [
             //
+            'name'=>'required|max:10',
+             'description'=>'required|min:10',
+             'categoria'=>'required',
+        ];
+    }
+    public function attributes()
+    {
+        // personalixar el nombre del atributo
+        return[
+            'name'=> 'nombre del curso'
+        ];      
+    }
+    public function messages()
+    {
+        return[
+            'description.required' => 'debe ingresar una descripción del curso'
         ];
     }
 }

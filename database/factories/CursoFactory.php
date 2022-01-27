@@ -21,6 +21,7 @@ class CursoFactory extends Factory
         return [
             //llena una sentencia
             'name'=>$name,
+                    //cadena a tranformar en minuscula y el separador
             'slug'=>Str::slug($name,'-'),
             //llena una descripción
             'description'=>$this->faker->paragraph(),

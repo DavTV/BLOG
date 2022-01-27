@@ -8,12 +8,26 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>@yield('title')</title>
+    @section('css')
 
+
+    <style>
+        .active{
+            background: #000 !important;
+            color: bisque !important;
+        }
+    </style>
+    @endsection
+    
 </head>
 <body>
-    <div style="padding: 10px" >
-        @yield('content')
-    </div>
-    
+    @include('layout/parts/header')
+
+    @yield('content')
+
+    @include('layout/parts/footer')
+    @section('js')
+
+    @endsection
 </body>
 </html>

@@ -4,7 +4,7 @@
 <h1>VISTA EDITAR CURSO</h1>
 {{-- le damos la ruta que va a procesar la info --}}
                                          {{-- envia los datos al metodo post  en el web  --}}
-<form action="{{route('cursos.update',$curso->id)}}" method="POST">
+<form action="{{route('cursos.update',$curso)}}" method="POST">
     {{-- tenemos que agragarle el toke n para que funcione --}}
     @csrf
     @method('put');

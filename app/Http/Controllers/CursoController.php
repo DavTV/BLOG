@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Curso;
+use App\Http\Requests\StoreCurso;
 class CursoController extends Controller
 {
     //pagina principal
@@ -23,13 +24,10 @@ class CursoController extends Controller
         return view('cursos.create');
     }
     //para validar el formulario
-    public function store(Request $request){
+                    //funciona igual qeu el reques pero ya valida con las opciones que pusimos en rule
+    public function store(StoreCurso $request){
          //antes de guardar debemos validar si no lo manda a la vista otra vez
-         $request->validate([
-             'name'=>'required|max:10',
-             'description'=>'required|min:10',
-             'categoria'=>'required',
-         ]);
+ 
 
         // muestra todo el contenido
         // return $request->all();
@@ -54,8 +52,8 @@ class CursoController extends Controller
         return view('cursos.show',compact('curso'));
     }
 // me va a crear unainstancia curso con el id que viene, osea lo mismo deque find
-    public function edit($id){
-        $curso = Curso::find($id);
+    public function edit(Curso $curso){
+       
         // return $curso;
         return view('cursos.edit',compact('curso'));
     }

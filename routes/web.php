@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\CursoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
-
+use App\Mail\ConactosMailable;
+use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +17,7 @@ use App\Http\Controllers\homeController;
 |
 */
 
-Route::get('/',HomeController::class);
+Route::get('/',HomeController::class)->name('home');
 // por defecto busca invoke
 // de esta forma le decimos que accione la función
                                                        // le ponemos un nombre para poder jalarlo después     
@@ -28,7 +30,7 @@ Route::post('cursos',[CursoController::class,'store'])->name('cursos.store');
 Route::get('cursos/{curso}',[CursoController::class,'show'])-> name('cursos.show');
 
 //ruta para ctualizar 
-Route::get('cursos/{id}/edit',[CursoController::class,'edit'])->name('cursos.edit');
+Route::get('cursos/{curso}/edit',[CursoController::class,'edit'])->name('cursos.edit');
 // llamar a un controlador con laravel 7
 // Route::get('cursos/create','CursoController@create');
 
@@ -50,3 +52,11 @@ Route::delete('curso/{curso}',[CursoController::class,'destroy'])->name('cursos.
 //     }
         
 // });
+
+
+// ruta para rutear paginas estaticas
+Route::view('nosotros','nosotros')->name('nosotros');
+
+Route::get('contactanos',[ContactanosController::class, 'index'])->name('contactanos.index');
+
+Route::post('contactanos',[ContactanosController::class, 'store'])->name('contactanos.store');

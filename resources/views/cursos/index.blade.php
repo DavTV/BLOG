@@ -19,6 +19,8 @@
                      <li>
                             {{-- asi no le indique que sawue el id, laravel sabe que debe sacar el id --}}
                             <a href="{{route('cursos.show',$item)}}" style="color: blue">{{$item->name}}</a>
+                            <br>
+                            {{route('cursos.show',$item)}}
                      {{-- le paso el parametro abc --}}
                      </li>
               </ul> 
